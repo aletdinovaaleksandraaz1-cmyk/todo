@@ -115,7 +115,11 @@ form {
     border: none;
     background-color: #6C63FF;
     box-shadow: 0px 0px 4px 0px rgba(108, 99, 255, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
 
 .button-dark:hover {
     width: 38px;
@@ -220,13 +224,15 @@ p {
     align-items: center;
     z-index: 1000;
 }
-.modal-content{
+
+.modal-content {
     height: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
 }
+
 .modal {
     width: 500px;
     height: 289px;
@@ -242,12 +248,14 @@ body.dark-mode .modal {
     background: #444;
     color: white;
 }
-.name-note{
+
+.name-note {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
+
 .modal h3 {
     font-size: 24px;
 }
@@ -335,4 +343,11 @@ body.dark-mode .button-dark {
     border: none;
     background-color: #534CC2;
     box-shadow: 0px 0px 4px 0px #6C63FF;
+}
+.no-results{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
 }
