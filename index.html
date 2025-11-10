@@ -73,8 +73,8 @@
         </div>
 
         <div class="content">
-            <form class="checkbox">
-                <div class="note">
+            <form class="checkbox" id="note_list">
+                <div class="note" id="gg">
                     <p>
                         <input type="checkbox" name="note1" class="click">NOTE #1
                     </p>
@@ -95,7 +95,7 @@
                     </div>
                 </div>
                 <div class="line"></div>
-                <div class="note">
+                <div class="note" id="gg">
                     <p>
                         <input type="checkbox" name="note2" class="click">NOTE #2
                     </p>
@@ -116,7 +116,7 @@
                     </div>
                 </div>
                 <div class="line"></div>
-                <div class="note">
+                <div class="note" id="gg">
                     <p>
                         <input type="checkbox" name="note3" class="click">NOTE #3
                     </p>
@@ -198,6 +198,17 @@
         });
 
         
+        const note_text = document.getElementById("noteInput");
+        const add_note = document.getElementById("addBtn");
+        const note_list = document.getElementById("note_list");
+
+        add_note.addEventListener("click",()=>{
+            const text_note = note_text.value;
+            const new_task = document.createElement("div")
+            new_task.innerText = text_note
+
+            note_list.appendChild(new_task)
+        });
     </script>
 </body>
 
