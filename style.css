@@ -35,6 +35,16 @@ body.dark-mode {
     font-weight: bold;
 }
 
+body.dark-mode .search {
+    width: 595px;
+    height: 38px;
+    border-radius: 5px;
+    border: 1px solid white;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #333;
+}
+
 .search {
     width: 595px;
     height: 38px;
@@ -43,7 +53,6 @@ body.dark-mode {
     padding-left: 10px;
     padding-right: 10px;
 }
-
 form {
     display: flex;
     gap: 20px;
@@ -133,12 +142,6 @@ form {
 .checkbox {
     display: flex;
     flex-direction: column;
-}
-
-.note {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 }
 
 .icon {
@@ -350,4 +353,9 @@ body.dark-mode .button-dark {
     justify-content: center;
     text-align: center;
     gap: 20px;
+}
+.note{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }

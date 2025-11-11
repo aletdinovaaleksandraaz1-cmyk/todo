@@ -74,7 +74,7 @@
 
         <div class="content">
             <form class="checkbox">
-                
+
             </form>
             <div class="add">
                 <div class="ellipse" id="addNoteButton">
@@ -172,36 +172,26 @@
             const penIcon = noteElement.querySelector('.pen');
             const basketIcon = noteElement.querySelector('.basket');
 
-            penIcon.addEventListener('click', () => {
-                const noteText = noteElement.querySelector('p').textContent;
-                const newText = prompt('Edit note:', noteText);
-                if (newText && newText.trim()) {
-                    noteElement.querySelector('p').innerHTML = `
+            penIcon.addEventListener('click',
+
+
+                () => {
+                    const noteText = noteElement.querySelector('p').textContent;
+                    const newText = prompt('Edit note:', noteText);
+                    if (newText && newText.trim()) {
+                        noteElement.querySelector('p').innerHTML = `
                         <input type="checkbox" name="note${Date.now()}" class="click">${newText.trim()}
                     `;
-                }
-            });
+                    }
+                });
 
             basketIcon.addEventListener('click', () => {
                 noteElement.remove();
-                const prevElement = noteElement.previousElementSibling;
-                if (prevElement && prevElement.classList.contains('line')) {
-                    prevElement.remove();
-                }
+                const prevElement = document.querySelector('.line');
+                prevElement.remove();
             });
+
         }
-
-        // Добавляем обработчики для существующих иконок
-        document.addEventListener('DOMContentLoaded', function () {
-            const existingNotes = document.querySelectorAll('.note');
-            existingNotes.forEach(note => {
-                addIconEventListeners(note);
-            });
-        });
-
-
-
-
 
         // Поиск заметок
         const searchInput = document.querySelector('.search');
@@ -337,30 +327,35 @@
         // Добавляем элемент в контейнер с заметками
         checkboxForm.parentNode.insertBefore(noResults, checkboxForm.nextSibling);
 
-        // Функция поиска
         function performSearch() {
             const searchTerm = searchInput.value.toLowerCase().trim();
             const notes = document.querySelectorAll('.note');
+            const lines = document.querySelectorAll('.line');
             let foundCount = 0;
 
+            // Сначала скрываем все заметки и линии
+            notes.forEach(note => note.style.display = 'none');
+            lines.forEach(line => line.style.display = 'none');
+
+            // Показываем подходящие заметки
             notes.forEach(note => {
                 const noteText = note.querySelector('p').textContent.toLowerCase();
                 if (noteText.includes(searchTerm)) {
                     note.style.display = 'flex';
                     foundCount++;
-                } else {
-                    note.style.display = 'none';
                 }
             });
 
-            // Скрываем/показываем разделители
-            const lines = document.querySelectorAll('.line');
-            lines.forEach(line => {
-                const nextNote = line.nextElementSibling;
-                if (nextNote && nextNote.style.display === 'none') {
-                    line.style.display = 'none';
-                } else {
-                    line.style.display = 'block';
+            // Теперь показываем линии только между видимыми заметками
+            const visibleNotes = Array.from(notes).filter(note => note.style.display === 'flex');
+
+            visibleNotes.forEach((note, index) => {
+                if (index > 0) {
+                    // Находим линию перед текущей заметкой
+                    const prevLine = note.previousElementSibling;
+                    if (prevLine && prevLine.classList.contains('line')) {
+                        prevLine.style.display = 'block';
+                    }
                 }
             });
 
@@ -374,20 +369,6 @@
             }
         }
 
-        // Обработчики событий для поиска
-        searchInput.addEventListener('input', performSearch);
-        searchButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            performSearch();
-        });
-
-        // Сброс поиска при очистке поля
-        searchInput.addEventListener('keyup', (e) => {
-            if (e.key === 'Escape') {
-                searchInput.value = '';
-                performSearch();
-            }
-        });
     </script>
 </body>
 
