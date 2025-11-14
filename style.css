@@ -111,10 +111,14 @@ form {
 }
 
 .option-all {
-    background-color: white;
+    background: white;
     color: #6C63FF;
     text-transform: capitalize;
     border: 1px solid #6C63FF;
+}
+.option-all:hover{
+    background: rgba(108, 99, 255, 0.2);
+    border: 1px solid rgba(108, 99, 255, 1);
 }
 
 .button-dark {
@@ -358,4 +362,20 @@ body.dark-mode .button-dark {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+/* Стили для зачеркнутого текста */
+.note p {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.note .completed {
+    color: #888;
+    text-decoration: line-through;
+}
+
+/* Для темной темы */
+body.dark-mode .note .completed {
+    color: #AAA;
 }
