@@ -10,16 +10,6 @@ body {
     justify-content: center;
 }
 
-body.light-mode {
-    background-color: #f4f4f4;
-    color: #333;
-}
-
-body.dark-mode {
-    background-color: #333;
-    color: #f4f4f4;
-}
-
 .todolist {
     width: 1000px;
     height: 800px;
@@ -33,16 +23,6 @@ body.dark-mode {
 .text {
     font-size: 26px;
     font-weight: bold;
-}
-
-body.dark-mode .search {
-    width: 595px;
-    height: 38px;
-    border-radius: 5px;
-    border: 1px solid white;
-    padding-left: 10px;
-    padding-right: 10px;
-    background-color: #333;
 }
 
 .search {
@@ -219,6 +199,29 @@ p {
     stroke: #E50000;
 }
 
+.no-results{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+}
+.note{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.note p {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.note .completed {
+    color: #888;
+    text-decoration: line-through;
+}
+
 .modal-overlay {
     display: none;
     position: fixed;
@@ -251,11 +254,6 @@ p {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-body.dark-mode .modal {
-    background: #444;
-    color: white;
-}
-
 .name-note {
     display: flex;
     flex-direction: column;
@@ -275,12 +273,6 @@ body.dark-mode .modal {
     font-size: 16px;
     width: 440px;
 
-}
-
-body.dark-mode .modal-input {
-    background: #555;
-    color: white;
-    border-color: #6C63FF;
 }
 
 .modal-buttons {
@@ -308,11 +300,6 @@ body.dark-mode .modal-input {
     border: 1px solid rgba(108, 99, 255, 1);
 }
 
-body.dark-mode .cancel-btn {
-    background: #555;
-    color: white;
-}
-
 .add-btn {
     background: #6C63FF;
     color: white;
@@ -330,9 +317,28 @@ body.dark-mode .cancel-btn {
     background: #534CC2;
 }
 
-/* Скрытие иконок */
 .icon-sun {
     display: none;
+}
+
+body.light-mode {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+body.dark-mode {
+    background-color: #333;
+    color: #f4f4f4;
+}
+
+body.dark-mode .search {
+    width: 595px;
+    height: 38px;
+    border-radius: 5px;
+    border: 1px solid white;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #333;
 }
 
 body.dark-mode .icon-moon {
@@ -351,31 +357,23 @@ body.dark-mode .button-dark {
     background-color: #534CC2;
     box-shadow: 0px 0px 4px 0px #6C63FF;
 }
-.no-results{
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    gap: 20px;
-}
-.note{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
 
-/* Стили для зачеркнутого текста */
-.note p {
-    position: relative;
-    transition: all 0.3s ease;
-}
-
-.note .completed {
-    color: #888;
-    text-decoration: line-through;
-}
-
-/* Для темной темы */
 body.dark-mode .note .completed {
     color: #AAA;
+}
+
+body.dark-mode .modal {
+    background: #444;
+    color: white;
+}
+
+body.dark-mode .modal-input {
+    background: #555;
+    color: white;
+    border-color: #6C63FF;
+}
+
+body.dark-mode .cancel-btn {
+    background: #555;
+    color: white;
 }
